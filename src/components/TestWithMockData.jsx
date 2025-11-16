@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const TestWithMockData = ({data}) => {
   return (
@@ -19,3 +20,14 @@ const TestWithMockData = ({data}) => {
 }
 
 export default TestWithMockData
+
+TestWithMockData.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      first_name: PropTypes.string,
+      last_name: PropTypes.string,
+      email: PropTypes.string,
+    })
+  ).isRequired,
+}
